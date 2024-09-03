@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jokes-client-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: jokes-client
+  template:
+    metadata:
+      labels:
+        name: jokes-client
+    spec:
+      containers:
+      - name: jokes-client-container
+        image: manish181623/test-client
+        ports:
+        - containerPort: 3000
